@@ -1,0 +1,321 @@
+@import "mixins";
+@import "variables";
+
+/**
+* CONTENTS
+*
+* Sidebar
+* Widget title
+* Search widget
+* Categories widget
+* Tag Cloud widget
+* Calendar widget
+* Recent Comments widget
+* Recent Entries widget
+*/
+
+/*------------------------------------*\
+    #Sidebar
+\*------------------------------------*/
+
+.sidebar {
+	margin-top: 100px;
+
+	@media(min-width: $screen-md) {
+		margin-top: 0;
+	}
+}
+
+/*------------------------------------*\
+    #Widget title
+\*------------------------------------*/
+
+.widget-title {
+	color: #222;
+	font-size: 16px;
+	font-weight: 700;
+	margin-bottom: 10px;
+	margin-top: 57px;
+	padding-bottom: 16px;
+	position: relative;
+
+	&:after {
+		background-color:#b2b2b2;
+		background-image: linear-gradient(90deg, transparent 50%, #fff 50%);
+		background-size: 3px 3px;
+		bottom: 0;
+		content: "";
+		height: 1px;
+		left: 0;
+		position: absolute;
+		width: 100%;
+	}
+}
+
+/*------------------------------------*\
+    #Search widget
+\*------------------------------------*/
+
+.widget_search, .widget-search {
+	form { position: relative; }
+
+	label { display: block; margin: 0; width: 100%; }
+
+	input[type="text"],
+	button {
+		font-size: 14px;
+		line-height: 1.3em;
+		padding: 9px 10px;
+	}
+
+	input[type="text"] {
+		background: none;
+		border-radius: 0;
+		font-weight: 300;
+	}
+
+	button {
+		background: none;
+		border: none;
+		color: #b5b5b5;
+		position: absolute;
+		right: 0;
+		top: 0;
+
+		i {
+			font-size: 14px;
+		}
+	}
+}
+
+/*------------------------------------*\
+    #Categories widget
+\*------------------------------------*/
+
+.widget_categories, .widget-categories {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li + li {
+		margin-top: 12px;
+	}
+
+	a {
+		position: relative;
+		padding-left: 20px;
+
+		&:before {
+			border-top: 5px solid transparent;
+			border-bottom: 5px solid transparent;
+			border-left: 6px solid #b5b5b5;
+			content: "";
+			left: 0;
+			height: 0; 
+			margin-top: 1px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			transition: border-color .2s;
+			width: 0;
+		}
+	}
+
+	a:hover {
+		.sidebar & {
+			color: #222;
+
+			&:before {
+				border-left-color: #222;
+			}
+		}
+	}
+
+	.count {
+		&:before { content: "("; }
+		&:after { content: ")"; }
+	}
+}
+
+/*------------------------------------*\
+    #Tag Cloud widget
+\*------------------------------------*/
+
+.widget_tag_cloud, .widget-tag-cloud {
+	a {
+		text-decoration: underline;
+
+		.sidebar & {
+			&:hover {
+				color: #222;
+			}
+		}
+	}
+}
+
+/*------------------------------------*\
+    #Calendar widget
+\*------------------------------------*/
+
+.widget_calendar, .widget-calendar {
+	font-weight: 400;
+
+	caption {
+		color: #222;
+		font-size: 14px;
+		font-weight: 700;
+		margin-bottom: 9px;
+		text-align: center;
+	}
+
+	#calendar_wrap, .calendar-wrap {
+		border: 1px solid #e1e1e1;
+		margin-top: 17px;
+		padding: 15px 16px;
+	}
+
+	table {
+		overflow: hidden;
+		width: 100%;
+	}
+
+	td, th {
+		padding: 5px 1px;
+		text-align: center;
+
+		@media(min-width: 500px) {
+			padding: 15px 6px;
+		}
+
+		@media(min-width: $screen-md) {
+			padding: 5px 3px;
+		}
+
+		@media(min-width: $screen-lg) {
+			padding: 5px 6px;
+		}
+	}
+
+	thead th {
+		color: #222;
+		font-size: 9px;
+		text-transform: uppercase;
+	}
+
+	tbody td {
+		color: #b5b5b5;
+		font-size: 13px;
+
+		&#today, &.today,
+		a {
+			color: #222;
+		}
+
+		&#today, &.today {
+			position: relative;
+
+			&:after {
+				background-color: #a7a7a7;
+				bottom: 5px;
+				content: "";
+				height: 1px;
+				left: 50%;
+				position: absolute;
+				transform: translateX(-50%);
+				width: 15px;
+			}
+		}
+	}
+}
+
+/*------------------------------------*\
+    #Recent Comments widget
+\*------------------------------------*/
+
+.widget_recent_comments,
+.widget-recent-comments {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		padding-left: 20px;
+		position: relative;
+
+		&:before {
+			background-color: #b5b5b5;
+			content: "";
+			border-radius: 100%;
+			height: 7px;
+			left: 0;
+			position: absolute;
+			transform: translateY(-50%);
+			top: 50%;
+			width: 7px;
+		}
+
+		& + li {
+			margin-top: 12px;
+		}
+	}
+}
+
+/*------------------------------------*\
+    #Recent Entries widget
+\*------------------------------------*/
+
+.widget_recent_entries, .widget-recent-entries {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		padding-left: 50px;
+		position: relative;
+
+		+ li {
+			margin-top: 21px;
+		}
+	}
+
+	a {
+		.sidebar & {
+			color: #222;
+		}
+		line-height: 1.1em;
+		position: relative;
+		top: -5px;
+	}
+
+	.post-comments {
+		display: block;
+		font-size: 14px;
+		margin-top: 5px;
+	}
+
+	.post-date {
+		background-color: #b5b5b5;
+		color: #fff;
+		font-size: 14px;
+		height: 40px;
+		left: 0;
+		line-height: 1em;
+		padding-top: 8px;
+		position: absolute;
+		text-align: center;
+		top: 0;
+		width: 40px;
+
+		span {
+			display: block;
+			font-size: 7px;
+			text-transform: uppercase;
+		}
+	}
+}
