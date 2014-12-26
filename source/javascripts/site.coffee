@@ -1,4 +1,4 @@
-jQuery ->
+$(document).ready ->
   $('#rev-slider-1').show().revolution
     delay: 9000
     startwidth: 1170
