@@ -5,11 +5,11 @@
 
   <nav class="nav-menu" role="navigation">
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><%= link_to 'Home', '/' %></li>
+      <li><%= link_to 'Team', '/team' %></li>
+      <li><%= link_to 'Work', '/work' %></li>
+      <li><%= link_to 'Learn', 'http://learn.codemy.net' %></li>
+      <li><%= link_to 'Contact', '/contact' %></li>
     </ul>
   </nav>
 
@@ -20,9 +20,20 @@
   </button>
 
   <ul class="nav-social">
-    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+    <li>
+      <% link_to 'http://facebook.com/codemy.net' do %>
+        <i class="fa fa-facebook"></i>
+      <% end %>
+    </li>
+    <li>
+      <% link_to 'https://twitter.com/codemynet' do %>
+        <i class="fa fa-twitter"></i>
+      <% end %>
+    </li>
+    <li>
+      <% link_to 'https://www.youtube.com/user/codemynet' do %>
+        <i class="fa fa-youtube"></i>
+      <% end %>
+    </li>
   </ul>
 </header>
